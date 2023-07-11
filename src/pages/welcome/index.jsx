@@ -10,7 +10,12 @@ const Content = [
     {
         title: "Support",
         content: "Empower your customer support team with this practical video tutorial, designed to enhance their skills and knowledge.",
-        link: () => <a href="#">Support</a>
+        link: () => <a href="#">Contact Support Team</a>
+    },
+    {
+        title: "Video Tutorials",
+        content: "Unlock your creative potential with this comprehensive video tutorial that guides you step-by-step through mastering a new skill.",
+        link: () => <a href="#">Check Out Now</a>
     },
 ]
 

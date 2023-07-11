@@ -1,5 +1,6 @@
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import Pagination from "../../components/Pagination"
 
 const defaultNotifications = [
     {
@@ -37,6 +38,10 @@ const NotificationsTable = () => {
     const [notifications, setNotifications] = useState(defaultNotifications)
 
     const [selectedNotifications, setSelectedNotifications] = useState([1])
+
+    useEffect(() => {
+        _notifications.then(res => console.debug) 
+    }, [])
     
     const handleCopy = (id, title) => {
         const newObj = notifications.find( element => element.id === id)
@@ -46,7 +51,7 @@ const NotificationsTable = () => {
     const handleDelete = (id) => {
         return setNotifications( notifications.filter( ({id:_id}) => _id !== id ))
     }
-    return <table className="table">
+    return <> <table className="table">
         <thead>
             <tr>
                 <th scope="col"><input type="checkbox" checked = { selectedNotifications.length === notifications.length } onChange={() => {
@@ -75,7 +80,6 @@ const NotificationsTable = () => {
                                     selectedNotifications.filter( _id => _id !== id  ) :
                                     [...selectedNotifications, id]
                                     )
-                                
                                 }
                             } />
                         </th>
@@ -124,6 +128,13 @@ const NotificationsTable = () => {
             }
         </tbody>
     </table>
+    <Pagination 
+        numberOfItems={40} 
+        perPage={4} 
+        currentPage={3}
+        onPageChange={(currentPage) => {
+    }}/>
+    </>
 }
 
 export default NotificationsTable

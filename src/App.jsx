@@ -18,7 +18,7 @@ function App() {
     <>
       <Navbar navSwitch={setCurrentPage} /> 
       <Screen 
-      screen = {changeScreen[currentPage] || null } />
+      screen = {changeScreen[currentPage]} />
     </>
 
   );
